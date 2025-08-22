@@ -2,21 +2,17 @@
 @if(profile) { 
 <div class="profile-card">
     <div class="avatar-name">
-        <img src="/assets/images/rayan.jpg" alt="Иконка" class="profile-card__avatar">
+        <img [src]="profile.avatarUrl | imgUrl" [alt]="profile.lastName" class="profile-card__avatar">
         <div class="profile-card__name">
             <strong class="h6">{{profile.firstName}} {{profile.lastName}} </strong>
-            <span class="subtitle">ghost&#64;mail.ru</span>
+            <span class="subtitle">{{profile.username}}</span>
         </div>
     </div>
-    <div class="profile-card__description">
-        Гослинг сыграл в независимых драмах «Полу-Нельсон», за которую актёра номинировали на «Оскар» за лучшую мужскую роль; «Ларс и настоящая девушка» и «Валентинка».
-    </div>
+    <div class="profile-card__description">{{profile.description}}</div>
     <div class="profile-card__tags">
-        <div class="skill-tag">Angular</div>
-        <div class="skill-tag">JavaScript</div>
-        <div class="skill-tag">TypeScript</div>
-        <div class="skill-tag">HTML</div>
-        <div class="skill-tag">CSS</div>
+        @for(skill of profile.stack; track skill){
+        <div class="skill-tag">{{skill}}</div>
+        }
     </div>
     <div class="profile-card__action-btns">
         <button class="btn">Подписаться</button>
