@@ -1,15 +1,8 @@
-<h1>Заголовок</h1>
 <!-- новый синтаксис ангуляр 17 шаблонов @for() вместо *ngFor 
  @for (item of items; track $index) {} трек это передача уникальных данных например id из данных полученных с сервера-->
-<div class="profile-card__wrapper">
-
- @for (profile of profiles; track profile.id) {
-    <app-profile-card [profile] = 'profile'></app-profile-card>
-}
-</div>
 <!-- <pre> вывод в браузер данных с сервера 
     {{profiles | json}} 
      Необходимо указать в app.config.ts в объекте appConfig - provideHttpClient() для того чтобы вывелась информация.По умолчанию нет провайдера
 </pre> -->
 <!-- тайминг https://www.youtube.com/watch?v=BVIffUyYlUk&t=2707s 46:31 -->
-
+<router-outlet></router-outlet>

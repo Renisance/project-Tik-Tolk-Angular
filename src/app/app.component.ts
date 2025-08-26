@@ -1,8 +1,6 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ProfileCardComponent } from './common-ui/profile-card/profile-card.component';
-import { ProfileService } from './data/services/profile.service'; 
-import { Profile } from './data/interface/profile.interface';
 
 
 
@@ -14,14 +12,5 @@ import { Profile } from './data/interface/profile.interface';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  profileService:ProfileService = inject(ProfileService); //сохраняем инстанс класса ProfileService
-  profiles:Profile[] = []
-  constructor(){ //описываем как мы будем общаться с бекендом
-    this.profileService.getTestAccounts()
-    .subscribe((val) => {
-      this.profiles = val
-    })
 
-
-  }
 }
